@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Input } from "@nextui-org/react";
-import { Eye, EyeIcon, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -41,44 +40,54 @@ export function RegisterPage() {
     const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
     return (
-        <form
-            id="form"
-            className="m-20 flex max-w-sm flex-col items-center gap-5 rounded-lg border border-gray-700 px-5 py-10 shadow shadow-gray-800"
-        >
-            <Input
-                label="Почта"
-                type="email"
-                placeholder="you@example.com"
-                labelPlacement="outside"
-                errorMessage={errors.email?.message as string}
-                isInvalid={!!errors.email?.message}
-                {...register("email")}
-            />
-            <Input
-                label="Пароль"
-                type={isVisiblePassword ? "text" : "password"}
-                placeholder="123Example"
-                labelPlacement="outside"
-                errorMessage={errors.password?.message as string}
-                isInvalid={!!errors.password?.message}
-                {...register("password")}
-                endContent={
-                    <TogglePasswordVisibility
-                        onClick={() => setIsVisiblePassword(!isVisiblePassword)}
-                        isVisible={isVisiblePassword}
+        <>
+            <title>Регистрация | PasswordBook</title>
+            <form className="m-20 flex max-w-sm flex-col items-center gap-12 rounded-xl border border-gray-700 p-5 pt-10 shadow shadow-gray-800">
+                <h1 className="text-lg font-bold">Регистрация</h1>
+                <div className="flex w-full flex-col gap-5">
+                    <Input
+                        label="Почта"
+                        type="email"
+                        placeholder="you@example.com"
+                        labelPlacement="outside"
+                        errorMessage={errors.email?.message as string}
+                        isInvalid={!!errors.email?.message}
+                        {...register("email")}
                     />
-                }
-            />
-            <Input
-                label="Подтверждение пароля"
-                type="password"
-                placeholder="123Example"
-                labelPlacement="outside"
-                errorMessage={errors.confirm?.message as string}
-                isInvalid={!!errors.confirm?.message}
-                {...register("confirm")}
-            />
-            <Button type="submit">Submit</Button>
-        </form>
+                    <Input
+                        label="Пароль"
+                        type={isVisiblePassword ? "text" : "password"}
+                        placeholder="123Example"
+                        labelPlacement="outside"
+                        errorMessage={errors.password?.message as string}
+                        isInvalid={!!errors.password?.message}
+                        {...register("password")}
+                        endContent={
+                            <TogglePasswordVisibility
+                                onClick={() =>
+                                    setIsVisiblePassword(!isVisiblePassword)
+                                }
+                                isVisible={isVisiblePassword}
+                            />
+                        }
+                    />
+                    <Input
+                        label="Подтверждение пароля"
+                        type="password"
+                        placeholder="123Example"
+                        labelPlacement="outside"
+                        errorMessage={errors.confirm?.message as string}
+                        isInvalid={!!errors.confirm?.message}
+                        {...register("confirm")}
+                    />
+                </div>
+                <div className="flex w-full flex-col gap-2.5">
+                    <Button type="submit" color="primary">
+                        Продолжить
+                    </Button>
+                    <Button type="button">Назад</Button>
+                </div>
+            </form>
+        </>
     );
 }
