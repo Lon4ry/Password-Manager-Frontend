@@ -1,0 +1,1 @@
+export { NextUIProvider } from "./nextui";

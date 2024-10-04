@@ -9,10 +9,16 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@hookform/resolvers": "^3.9.0",
+        "@nextui-org/react": "^2.4.8",
         "babel-plugin-react-compiler": "experimental",
+        "framer-motion": "^11.11.0",
+        "lucide-react": "^0.447.0",
         "next": "canary",
         "react": "canary",
-        "react-dom": "canary"
+        "react-dom": "canary",
+        "react-hook-form": "^7.53.0",
+        "zod": "^3.23.8"
     },
     "devDependencies": {
         "@feature-sliced/eslint-config": "^0.1.1",
