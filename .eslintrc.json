@@ -1,12 +1,23 @@
 {
-  "extends": ["@feature-sliced", "next/core-web-vitals", "next/typescript"],
+    "extends": [
+        "eslint:recommended",
+        "prettier",
+        "plugin:@typescript-eslint/recommended",
+        "next/core-web-vitals",
+        "next/typescript",
+        "@feature-sliced/eslint-config/rules/import-order/experimental",
+        "@feature-sliced/eslint-config/rules/public-api/lite",
+        "@feature-sliced/eslint-config/rules/layers-slices"
+        // "@feature-sliced/eslint-plugin-messages"
+    ],
+    // "processor": "@feature-sliced/messages/fs",
 
-  "parser": "@typescript-eslint/parser",
-  "settings": {
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true
-      }
+    "parser": "@typescript-eslint/parser",
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true
+            }
+        }
     }
-  }
 }
