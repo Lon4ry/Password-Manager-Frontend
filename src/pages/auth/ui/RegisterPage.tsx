@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input, Link } from "@nextui-org/react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -40,9 +40,9 @@ export function RegisterPage() {
     const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
     return (
-        <>
+        <main className="flex min-h-screen w-full flex-col items-center justify-center">
             <title>Регистрация | PasswordBook</title>
-            <form className="m-20 flex max-w-sm flex-col items-center gap-12 rounded-xl border border-gray-700 p-5 pt-10 shadow shadow-gray-800">
+            <form className="flex w-[425px] flex-col items-center gap-12 rounded-xl border border-gray-700 p-5 pt-10 shadow shadow-gray-800">
                 <h1 className="text-lg font-bold">Регистрация</h1>
                 <div className="flex w-full flex-col gap-5">
                     <Input
@@ -85,9 +85,11 @@ export function RegisterPage() {
                     <Button type="submit" color="primary">
                         Продолжить
                     </Button>
-                    <Button type="button">Назад</Button>
+                    <Button as={Link} href="/auth/login" type="button">
+                        Назад
+                    </Button>
                 </div>
             </form>
-        </>
+        </main>
     );
 }
